@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from .models import image, location
+from django.http import Http404, HttpResponse
 
 
 # Create your views here.
 def index(request):
     images = image.objects.all()
-    locations = location.get_locations()
+    locations = location.objects.all()
     print(locations)
     return render(request,'gallery_templates/index.html',locals())
 
