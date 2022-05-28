@@ -17,7 +17,7 @@ class category(models.Model):
     def __str__(self):
       return self.name
 
-class Image(models.Model):
+class image(models.Model):
     name=models.CharField(max_length=50)
     image=models.ImageField(upload_to='Images/',null=True ,blank=True)
     description=models.TextField()
@@ -25,3 +25,29 @@ class Image(models.Model):
     location=models.ForeignKey(location,on_delete=models.CASCADE,)
     author=models.CharField(max_length=40, default='admin')
     date=models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def filter_by_location(cls,location):
+      image_location = image.objects.filter(location__name=location).all()
+      return image_location
+
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def update_image(cls, id, value):
+        cls.objects.filter(id=id).update(image=value)
+
+    def delete_image(self):
+        self.delete()
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = cls.objects.filter(id=id).all()
+        return image
+
+    class Meta:
+        ordering = ['date']
+    
+    
+
