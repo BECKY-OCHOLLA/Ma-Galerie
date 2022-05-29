@@ -9,10 +9,10 @@
         <!-- Adding a search form  -->
         <div class="col-sm-4 col-md-4 navbar-right">
 
-            <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+            <form class="navbar-form" role="search" action="/search" role='search'>
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search category" name="imagesearch">
+                    <input type="search" class="form-control" placeholder="Search category" name="imagesearch" aria-label="Search">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit" style="color:aqua;font-size: 18px;border-radius: 10px;"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>

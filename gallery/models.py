@@ -1,8 +1,15 @@
 from django.db import models
 
 # Create your models here.
-class location(models.Model):
+class Location(models.Model):
     name=models.CharField(max_length=50)
+
+
+    @classmethod
+    def get_locations(cls):
+     locations = Location.objects.all()
+     return locations
+
 
     
 
@@ -19,7 +26,7 @@ class location(models.Model):
     def delete_location(self):
       self.delete()  
 
-class category(models.Model):
+class Category(models.Model):
     name=models.CharField(max_length=50)
 
 
@@ -38,18 +45,18 @@ class category(models.Model):
     def delete_category(self):
       self.delete()
 
-class image(models.Model):
+class Image(models.Model):
     name=models.CharField(max_length=50)
     image=models.ImageField(upload_to='Images/',null=True ,blank=True)
     description=models.TextField()
-    category=models.ForeignKey(category,on_delete=models.CASCADE,)
-    location=models.ForeignKey(location,on_delete=models.CASCADE,)
+    category=models.ForeignKey(Category,on_delete=models.CASCADE,)
+    location=models.ForeignKey(Location,on_delete=models.CASCADE,)
     author=models.CharField(max_length=40, default='admin')
     date=models.DateTimeField(auto_now_add=True)
 
     @classmethod
     def filter_by_location(cls,location):
-      image_location = image.objects.filter(location__name=location).all()
+      image_location = Image.objects.filter(location__name=location).all()
       return image_location
 
     def save_image(self):
