@@ -49,7 +49,7 @@ class Image(models.Model):
     name=models.CharField(max_length=50)
     image=models.ImageField(upload_to='Images/',null=True ,blank=True)
     description=models.TextField()
-    category=models.ForeignKey(Category,on_delete=models.CASCADE,)
+    category=models.ForeignKey(Category, on_delete=models.CASCADE)
     location=models.ForeignKey(Location,on_delete=models.CASCADE,)
     author=models.CharField(max_length=40, default='admin')
     date=models.DateTimeField(auto_now_add=True)
@@ -67,12 +67,14 @@ class Image(models.Model):
         cls.objects.filter(id=id).update(image=value)
 
     @classmethod
-    def search_by_category(cls, category):
-        images = cls.objects.filter(category__name__icontains=category)
+    def search_by_category(cls,category):
+        images=cls.objects.filter(category__name__icontains=category)
         return images
 
     def __str__(self):
         return self.name
+
+
 
 
     def delete_image(self):
@@ -83,6 +85,15 @@ class Image(models.Model):
         image = cls.objects.filter(id=id).all()
     
         return image
+
+    @classmethod
+    def get_all_images(cls):
+        images = Image.objects.all()
+
+        return images
+
+   
+    
 
     class Meta:
         ordering = ['date']

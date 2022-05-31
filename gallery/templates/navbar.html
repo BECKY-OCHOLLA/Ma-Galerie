@@ -1,25 +1,24 @@
+{% load static %}
 
 
-  <nav class="navbar navbar-inverse" style="background-color: black;">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand text-white" href="{% url 'index' %}">Ma Galarie</a>
-        </div>
+<nav class="navbar navbar-dark bg-info navbar-expand-sm " >
+  <a class="navbar-brand" href="/"><h3>Ma Galarie</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item active">
+                <a class="nav-link home" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+           
+            </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0"  action=" search/" >
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Category" name="imagesearch" >
 
-        <!-- Adding a search form  -->
-        <div class="col-sm-4 col-md-4 navbar-right">
-
-            <form class="navbar-form" role="search" action="/search" role='search'>
-
-                <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Search category" name="imagesearch" aria-label="Search">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit" style="color:aqua;font-size: 18px;border-radius: 10px;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-        <!-- search form end -->
+        <button class="btn btn-success btn-md my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      
     </div>
 </nav>
