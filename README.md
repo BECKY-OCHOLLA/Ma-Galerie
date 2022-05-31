@@ -3,6 +3,7 @@
 This is an application that allows users to view images. Image details are stored in categories and tagged by Location. The admin is responsible for uploading, editing or deleting images.
 
 ### Live link
+To view live link use  https://ma-galarie.herokuapp.com/ deployed to Heroku
 
 ### User Stories
 These are the behaviours/features that the application implements for use by a user.
